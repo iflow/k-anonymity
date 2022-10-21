@@ -6,6 +6,7 @@
   - Topdown Greedy
   - Classic Mondrian
   - Basic Mondrian
+  - OLA (Optimal Lattice Anonymization)
 - Implements 3 anonymization metrics: 
   - Equivalent Class size metric (CAVG)
   - Discernibility Metric (DM)
