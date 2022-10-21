@@ -22,7 +22,7 @@ parser.add_argument('--dataset', type=str, default='adult',
 class Anonymizer:
     def __init__(self, args):
         self.method = args.method
-        assert self.method in ["mondrian", "topdown", "cluster", "mondrian_ldiv", "classic_mondrian", "datafly"]
+        assert self.method in ["mondrian", "topdown", "cluster", "mondrian_ldiv", "classic_mondrian", "datafly", "ola"]
         self.k = args.k
         self.data_name = args.dataset
         self.csv_path = args.dataset+'.csv'
@@ -78,7 +78,8 @@ class Anonymizer:
             "att_trees" :ATT_TREES,
             "value" :self.k,
             "qi_index" :QI_INDEX, 
-            "sa_index" :SA_INDEX
+            "sa_index" :SA_INDEX,
+            'qi_names' :QI_NAMES,
         }
 
         if self.method == AnonMethod.CLASSIC_MONDRIAN:
@@ -142,7 +143,6 @@ class Anonymizer:
 def main(args):
     anonymizer = Anonymizer(args)
     anonymizer.anonymize()
-    
 
 if __name__ == '__main__':
     args = parser.parse_args()
